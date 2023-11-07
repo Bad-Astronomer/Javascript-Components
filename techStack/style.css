@@ -57,6 +57,15 @@ body{
   margin-left: 12.5%;
   font-size: clamp(1.25rem, 2vw, 2rem);
   font-weight: 800;
+  position: relative;
+}
+
+#tech-header-span{
+  position: absolute;
+  left: 0;
+}
+#tech-permaheader-span{
+  opacity: 0;
 }
 
 

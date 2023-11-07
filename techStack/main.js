@@ -109,6 +109,11 @@ function pixelateImage(image) {
 // Helper functions to pixelateImage
 
 function animateImage(img){
+    // header
+    techHeader.innerHTML = img.tag;
+    techHeader.style.color = img.color;
+
+    // image
     clearInterval(img.animationInterval);
     img.animationInterval = setInterval(() => {
         img.opacity += 0.3
@@ -147,17 +152,19 @@ const tech_stack = {
         tag: "Python",
         url: './assets/pixel_python.png',
         filter: "brightness(1.3)",
-    
+        color: "rgb(18, 159, 201)",
+
         opacity: 0,
         pixelationFactor: 7,
         image: new Image(),
     },
     
     tech_js: {
-        tag: "Javascripting",
+        tag: "Javascript",
         url: './assets/pixel_javascript.png',
         filter: "brightness(1.15) contrast(1.1)",
-    
+        color: "rgb(196, 178, 16)",
+
         opacity: 0,
         pixelationFactor: 8,
         image: new Image(),
@@ -167,7 +174,8 @@ const tech_stack = {
         tag: "CSS styling",
         url: './assets/pixel_css.png',
         filter: "brightness(1.25) contrast(1.1)",
-    
+        color: "rgb(30, 131, 214)",
+
         opacity: 0,
         pixelationFactor: 8,
         image: new Image(),
@@ -177,7 +185,8 @@ const tech_stack = {
         tag: "ReactJS",
         url: './assets/pixel_reactjs.png',
         filter: "brightness(1) ",
-    
+        color: "rgb(30, 192, 214)",
+
         opacity: 0,
         pixelationFactor: 8,
         image: new Image(),
@@ -187,7 +196,8 @@ const tech_stack = {
         tag: "C_programming",
         url: './assets/pixel_c.png',
         filter: "brightness(1.25)",
-    
+        color: "rgb(55, 63, 184)",
+
         opacity: 0,
         pixelationFactor: 8,
         image: new Image(),
@@ -197,7 +207,8 @@ const tech_stack = {
         tag: "PyTorch",
         url: './assets/pixel_pytorch.png',
         filter: "brightness(1.25)",
-    
+        color: "rgb(240, 77, 28)",
+
         opacity: 0,
         pixelationFactor: 7,
         image: new Image(),
@@ -207,7 +218,8 @@ const tech_stack = {
         tag: "ThreeJS",
         url: './assets/pixel_three.png',
         filter: "brightness(0.85) contrast(1.3)",
-    
+        color: "rgb(161, 161, 161)",
+
         opacity: 0,
         pixelationFactor: 7,
         image: new Image(),
@@ -217,22 +229,27 @@ const tech_stack = {
         tag: "Java",
         url: './assets/pixel_java.png',
         filter: "brightness(1.5) contrast(1.1)",
-    
+        color: "rgb(226, 137, 12)",
+
         opacity: 0,
         pixelationFactor: 9,
         image: new Image(),
     },
     
     tech_ts : {
-        tag: "Typrscripting",
+        tag: "Typescript",
         url: './assets/pixel_ts.png',
         filter: "brightness(1.15) contrast(1.1)",
-    
+        color: "rgb(47, 117, 193)",
+
         opacity: 0,
         pixelationFactor: 8,
         image: new Image(),
     },
 }
+
+const techPermaHeader = document.createElement("tech-permaheader-span")
+const techHeader = document.getElementById("tech-header-span");
 
 function initTechStack(){
     for(let i = 0; i < 9; i++){
@@ -244,11 +261,9 @@ function initTechStack(){
         document.getElementById("tech").append(techDiv);
     }
 
-
     let i = 0;
     for (const [_, tech] of Object.entries(tech_stack)){
         tech.element = document.getElementsByClassName("tech-icon")[i+1];
-        console.log(tech.element);
         initTechCanvas(tech);
         i++;
     }
