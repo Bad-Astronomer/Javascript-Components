@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap');
+
+
+:root{
+  --width: clamp(640px * 0.9, 90vw, 1080px);
+  --tech-grid-rows: 2;
+  --tech-grid-columns: 6;
+
+  --cross-size: 21px;
+  --border-color: hsla( 0,0%,12% ,1);
+  --cross-color: hsla( 0,0%,53% ,1);
+  /* --border-color: rgba(255, 255, 255, 0.586); */
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+*{
+  font-family: 'Chakra Petch', sans-serif;
+}
+
+#app{
+  height: 100vh;
+  width: 100vw;
+  background-color: black;
+
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+#tech{
+  position: relative;
+  height: calc(var(--width) / var(--tech-grid-columns) * var(--tech-grid-rows));
+  width: var(--width);
+  margin: auto;
+
+  display: grid;
+  grid-template-rows: repeat(var(--tech-grid-rows), 1fr);
+  grid-template-columns: repeat(var(--tech-grid-columns), 1fr);
+  border-bottom: 1px solid var(--border-color);
+  border-left: 1px solid var(--border-color);
+}
+
+#tech-header{
+  grid-area: span 1 / span 2;
+  border-top: 1px solid var(--border-color);
+  border-right: 1px solid var(--border-color);
+
+  color: rgb(233, 233, 233);
+  display: flex;
+  align-items: center;
+}
+#tech-header p{
+  margin-left: 12.5%;
+  font-size: clamp(1.25rem, 2vw, 2rem);
+  font-weight: 800;
+}
+
+
+.tech-icon{
+  box-sizing: border-box;
+  border-top: 1px solid var(--border-color);
+  border-right: 1px solid var(--border-color);
+  grid-area: span 1 / span 1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.tech-icon img{
+  position: absolute;
+  height: 40%;
+  filter: saturate(0) brightness(0.8);
+  transition: all 200ms ease;
+}
+.tech-icon:hover img{
+  filter: saturate(0.9) brightness(1);
+}
+/* .tech-icon:hover .tech-icon img{
+  filter: saturate(1) brightness(1);
+} */
+
+.tech-img{
+  position: absolute;
+  width: 40%;
+  height: 40%;
+  pointer-events: none;
+  filter: brightness(1.25);
+}
+
+
+/* Cross */
+.cross{
+  height: var(--cross-size);
+  width: var(--cross-size);
+  position: absolute;
+  translate: -50% -50%;
+}
+.cross-bottom{
+  inset: 100% 100%;
+}
+.cross-half-vertical{
+  position: absolute;
+  height: var(--cross-size);
+  width: calc(var(--cross-size) / 2);
+  border-right: 1px solid var(--cross-color);
+}
+.cross-half-horizontal{
+  position: absolute;
+  height: calc(var(--cross-size) / 2);
+  width: var(--cross-size);
+  border-bottom: 1px solid var(--cross-color);
+}
+/* Cross */
