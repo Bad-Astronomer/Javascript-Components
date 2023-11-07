@@ -199,7 +199,7 @@ const tech_c = {
     element: document.getElementsByClassName("tech-icon")[4],
 
     opacity: 0,
-    pixelationFactor: 9,
+    pixelationFactor: 8,
 
     animationInterval: null,
     image: new Image(),
