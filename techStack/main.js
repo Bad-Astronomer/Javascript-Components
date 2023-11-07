@@ -156,7 +156,7 @@ const tech_python = {
 const tech_js = {
     tag: "Javascripting",
     url: './assets/pixel_javascript.png',
-    filter: "brightness(1.25)",
+    filter: "brightness(1.15) contrast(1.1)",
     element: document.getElementsByClassName("tech-icon")[1],
 
     opacity: 0,
@@ -173,7 +173,7 @@ const tech_css = {
     element: document.getElementsByClassName("tech-icon")[2],
 
     opacity: 0,
-    pixelationFactor: 7,
+    pixelationFactor: 8,
 
     animationInterval: null,
     image: new Image(),
@@ -181,8 +181,8 @@ const tech_css = {
 
 const tech_react = {
     tag: "ReactJS",
-    url: './assets/pixel_react.png',
-    filter: "brightness(1.1) contrast(1.25)",
+    url: './assets/pixel_reactjs.png',
+    filter: "brightness(1) ",
     element: document.getElementsByClassName("tech-icon")[3],
 
     opacity: 0,
@@ -199,7 +199,7 @@ const tech_c = {
     element: document.getElementsByClassName("tech-icon")[4],
 
     opacity: 0,
-    pixelationFactor: 7,
+    pixelationFactor: 9,
 
     animationInterval: null,
     image: new Image(),
@@ -221,7 +221,7 @@ const tech_pytorch = {
 const tech_threejs = {
     tag: "ThreeJS",
     url: './assets/pixel_three.png',
-    filter: "brightness(1)",
+    filter: "brightness(0.85) contrast(1.3)",
     element: document.getElementsByClassName("tech-icon")[6],
 
     opacity: 0,
@@ -234,11 +234,11 @@ const tech_threejs = {
 const tech_java = {
     tag: "Java",
     url: './assets/pixel_java.png',
-    filter: "brightness(1.5)",
+    filter: "brightness(1.5) contrast(1.1)",
     element: document.getElementsByClassName("tech-icon")[7],
 
     opacity: 0,
-    pixelationFactor: 7,
+    pixelationFactor: 9,
 
     animationInterval: null,
     image: new Image(),
@@ -251,7 +251,7 @@ const tech_ts = {
     element: document.getElementsByClassName("tech-icon")[8],
 
     opacity: 0,
-    pixelationFactor: 9,
+    pixelationFactor: 8,
 
     animationInterval: null,
     image: new Image(),
