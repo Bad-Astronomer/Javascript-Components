@@ -91,6 +91,9 @@ body{
   filter: brightness(1.25);
 }
 
+.tech-redirect-container{
+  grid-area: -1/-1/-2/-2;
+}
 .tech-redirect{
   position: relative;
   color: white;

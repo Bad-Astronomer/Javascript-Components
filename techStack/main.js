@@ -140,129 +140,117 @@ function initTechCanvas(tech){
 }
 
 
-const tech_python = {
-    tag: "Python",
-    url: './assets/pixel_python.png',
-    filter: "brightness(1.3)",
-    element: document.getElementsByClassName("tech-icon")[0],
 
-    opacity: 0,
-    pixelationFactor: 7,
 
-    animationInterval: null,
-    image: new Image(),
-};
+const tech_stack = {
+    tech_python: {
+        tag: "Python",
+        url: './assets/pixel_python.png',
+        filter: "brightness(1.3)",
+    
+        opacity: 0,
+        pixelationFactor: 7,
+        image: new Image(),
+    },
+    
+    tech_js: {
+        tag: "Javascripting",
+        url: './assets/pixel_javascript.png',
+        filter: "brightness(1.15) contrast(1.1)",
+    
+        opacity: 0,
+        pixelationFactor: 8,
+        image: new Image(),
+    },
+    
+    tech_css: {
+        tag: "CSS styling",
+        url: './assets/pixel_css.png',
+        filter: "brightness(1.25) contrast(1.1)",
+    
+        opacity: 0,
+        pixelationFactor: 8,
+        image: new Image(),
+    },
+    
+    tech_react: {
+        tag: "ReactJS",
+        url: './assets/pixel_reactjs.png',
+        filter: "brightness(1) ",
+    
+        opacity: 0,
+        pixelationFactor: 8,
+        image: new Image(),
+    },
+    
+    tech_c: {
+        tag: "C_programming",
+        url: './assets/pixel_c.png',
+        filter: "brightness(1.25)",
+    
+        opacity: 0,
+        pixelationFactor: 8,
+        image: new Image(),
+    },
+    
+    tech_pytorch: {
+        tag: "PyTorch",
+        url: './assets/pixel_pytorch.png',
+        filter: "brightness(1.25)",
+    
+        opacity: 0,
+        pixelationFactor: 7,
+        image: new Image(),
+    },
+    
+    tech_threejs: {
+        tag: "ThreeJS",
+        url: './assets/pixel_three.png',
+        filter: "brightness(0.85) contrast(1.3)",
+    
+        opacity: 0,
+        pixelationFactor: 7,
+        image: new Image(),
+    },
+    
+    tech_java: {
+        tag: "Java",
+        url: './assets/pixel_java.png',
+        filter: "brightness(1.5) contrast(1.1)",
+    
+        opacity: 0,
+        pixelationFactor: 9,
+        image: new Image(),
+    },
+    
+    tech_ts : {
+        tag: "Typrscripting",
+        url: './assets/pixel_ts.png',
+        filter: "brightness(1.15) contrast(1.1)",
+    
+        opacity: 0,
+        pixelationFactor: 8,
+        image: new Image(),
+    },
+}
 
-const tech_js = {
-    tag: "Javascripting",
-    url: './assets/pixel_javascript.png',
-    filter: "brightness(1.15) contrast(1.1)",
-    element: document.getElementsByClassName("tech-icon")[1],
+function initTechStack(){
+    for(let i = 0; i < 9; i++){
+        const techDiv = document.createElement("div");
+        techDiv.classList.add("tech-icon");
+        const techImg = document.createElement("canvas");
+        techImg.classList.add("tech-img");
+        techDiv.appendChild(techImg);
+        document.getElementById("tech").append(techDiv);
+    }
 
-    opacity: 0,
-    pixelationFactor: 8,
 
-    animationInterval: null,
-    image: new Image(),
-};
-
-const tech_css = {
-    tag: "CSS styling",
-    url: './assets/pixel_css.png',
-    filter: "brightness(1.25) contrast(1.1)",
-    element: document.getElementsByClassName("tech-icon")[2],
-
-    opacity: 0,
-    pixelationFactor: 8,
-
-    animationInterval: null,
-    image: new Image(),
-};
-
-const tech_react = {
-    tag: "ReactJS",
-    url: './assets/pixel_reactjs.png',
-    filter: "brightness(1) ",
-    element: document.getElementsByClassName("tech-icon")[3],
-
-    opacity: 0,
-    pixelationFactor: 8,
-
-    animationInterval: null,
-    image: new Image(),
-};
-
-const tech_c = {
-    tag: "C_programming",
-    url: './assets/pixel_c.png',
-    filter: "brightness(1.25)",
-    element: document.getElementsByClassName("tech-icon")[4],
-
-    opacity: 0,
-    pixelationFactor: 8,
-
-    animationInterval: null,
-    image: new Image(),
-};
-
-const tech_pytorch = {
-    tag: "PyTorch",
-    url: './assets/pixel_pytorch.png',
-    filter: "brightness(1.25)",
-    element: document.getElementsByClassName("tech-icon")[5],
-
-    opacity: 0,
-    pixelationFactor: 7,
-
-    animationInterval: null,
-    image: new Image(),
-};
-
-const tech_threejs = {
-    tag: "ThreeJS",
-    url: './assets/pixel_three.png',
-    filter: "brightness(0.85) contrast(1.3)",
-    element: document.getElementsByClassName("tech-icon")[6],
-
-    opacity: 0,
-    pixelationFactor: 7,
-
-    animationInterval: null,
-    image: new Image(),
-};
-
-const tech_java = {
-    tag: "Java",
-    url: './assets/pixel_java.png',
-    filter: "brightness(1.5) contrast(1.1)",
-    element: document.getElementsByClassName("tech-icon")[7],
-
-    opacity: 0,
-    pixelationFactor: 9,
-
-    animationInterval: null,
-    image: new Image(),
-};
-
-const tech_ts = {
-    tag: "Typrscripting",
-    url: './assets/pixel_ts.png',
-    filter: "brightness(1.15) contrast(1.1)",
-    element: document.getElementsByClassName("tech-icon")[8],
-
-    opacity: 0,
-    pixelationFactor: 8,
-
-    animationInterval: null,
-    image: new Image(),
-};
-
-initTechCanvas(tech_python);
-initTechCanvas(tech_js);
-initTechCanvas(tech_css);
-initTechCanvas(tech_react);
-initTechCanvas(tech_c);
-initTechCanvas(tech_pytorch);
-initTechCanvas(tech_threejs);
-initTechCanvas(tech_java);
-initTechCanvas(tech_ts);
+    let i = 0;
+    for (const [_, tech] of Object.entries(tech_stack)){
+        tech.element = document.getElementsByClassName("tech-icon")[i+1];
+        console.log(tech.element);
+        initTechCanvas(tech);
+        i++;
+    }
+}
+initTechStack();
