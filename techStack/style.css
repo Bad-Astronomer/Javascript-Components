@@ -91,6 +91,25 @@ body{
   filter: brightness(1.25);
 }
 
+.tech-redirect{
+  position: relative;
+  color: white;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  border: 2px solid var(--border-color);
+  transition: all 200ms ease-in;
+  cursor: pointer;
+}
+.tech-redirect:hover{
+  background-color: var(--border-color);
+}
+.tech-redirect p{
+  scale: 1.5 2;
+  translate: 63% -15%;
+  pointer-events: none;
+}
+
 
 /* Cross */
 .cross{
