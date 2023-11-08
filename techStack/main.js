@@ -1,3 +1,5 @@
+// corner cross template
+
 function createCross(position, element){
     let cross = document.createElement("div");
     cross.classList.add("cross");
@@ -19,7 +21,7 @@ function cross(element){
     createCross("bottom", element);
 }
 
-
+// add cross to all sections
 const sections = document.querySelectorAll("section");
 sections.forEach((section) => {
     cross(section);
@@ -33,6 +35,11 @@ function avg(arr){
     const sum = arr.reduce((a, b) => a + b, 0);
     return sum / arr.length;
 }
+
+function animateText(){
+
+}
+
 
 // Pixelated Image
 
@@ -82,6 +89,7 @@ function pixelateImage(image) {
             originalImageData[pixelIndexPosition + 2],
         ]
 
+        //! PENDING CHANGES TO HELP IMPROVE CONTRAST
         let avg_rgb = avg(rgba)/dark;
         let color;
 
@@ -119,10 +127,15 @@ function animateImage(img){
         img.opacity += 0.3
         img.opacity = Math.min(img.opacity, 1);
         pixelateImage(img);
-    },100)
+    },120)
 }
 
 function deanimateImage(img){
+    // header
+    techHeader.innerHTML = defaultHeader;
+    techHeader.style.color = "white";
+
+    // image
     clearInterval(img.animationInterval);
     img.animationInterval = setInterval(() => {
         img.opacity -= 0.3
@@ -131,7 +144,7 @@ function deanimateImage(img){
             clearInterval(img.animationInterval);
         }
         pixelateImage(img);
-    },100)
+    },120)
 }
 
 function initTechCanvas(tech){
@@ -248,10 +261,13 @@ const tech_stack = {
     },
 }
 
-const techPermaHeader = document.createElement("tech-permaheader-span")
 const techHeader = document.getElementById("tech-header-span");
+const defaultHeader = "&lt;<span style = 'color: red'> / </span>&gt;";
 
 function initTechStack(){
+    techHeader.innerHTML = defaultHeader;
+    techHeader.style.color = "white";
+
     for(let i = 0; i < 9; i++){
         const techDiv = document.createElement("div");
         techDiv.classList.add("tech-icon");

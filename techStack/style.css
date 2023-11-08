@@ -3,6 +3,8 @@
 
 :root{
   --width: clamp(640px * 0.9, 90vw, 1080px);
+
+  --header-color: rgb(233, 233, 233);
   --tech-grid-rows: 2;
   --tech-grid-columns: 6;
 
@@ -49,7 +51,7 @@ body{
   border-top: 1px solid var(--border-color);
   border-right: 1px solid var(--border-color);
 
-  color: rgb(233, 233, 233);
+  color: var(--header-color);
   display: flex;
   align-items: center;
 }
@@ -58,14 +60,6 @@ body{
   font-size: clamp(1.25rem, 2vw, 2rem);
   font-weight: 800;
   position: relative;
-}
-
-#tech-header-span{
-  position: absolute;
-  left: 0;
-}
-#tech-permaheader-span{
-  opacity: 0;
 }
 
 
