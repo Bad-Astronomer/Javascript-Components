@@ -14,7 +14,7 @@ const tech_stack = {
     tech_js: {
         tag: "Javascript",
         url: './assets/pixel_javascript.png',
-        filter: "brightness(1.15) contrast(1.1)",
+        filter: "brightness(1.2) contrast(1.1)",
         color: "rgb(196, 178, 16)",
         noise: 0.08,
 
@@ -98,7 +98,7 @@ const tech_stack = {
     tech_ts : {
         tag: "Typescript",
         url: './assets/pixel_ts.png',
-        filter: "brightness(1.15) contrast(1.1)",
+        filter: "brightness(1.3) contrast(1.1)",
         color: "rgb(47, 117, 193)",
         noise: 0.08,
 
