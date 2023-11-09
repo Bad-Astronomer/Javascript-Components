@@ -43,16 +43,13 @@ function animateText(){
 
 // Pixelated Image
 
-function pixelateImage(image) {
-    const originalImage = image.image
-    const canvas = image.element.querySelector('canvas');
+function pixelateImage(tech) {
+    const originalImage = tech.image;
+    const canvas = tech.element.querySelector('canvas');
     const ctx = canvas.getContext("2d", {willReadFrequently: true});
 
-    const opacity = image.opacity;
-    const pixelationFactor = image.pixelationFactor;
-
-    // originalImage.width = canvas.getBoundingClientRect().width;
-    // originalImage.height = canvas.getBoundingClientRect().height;
+    const saturation = tech.saturation;
+    const pixelationFactor = tech.pixelationFactor;
 
     const originalWidth = originalImage.width;
     const originalHeight = originalImage.height;
@@ -73,31 +70,33 @@ function pixelateImage(image) {
         originalHeight
     ).data;
 
+    
     for (let y = 0; y < originalHeight; y += pixelationFactor) {
         for (let x = 0; x < originalWidth; x += pixelationFactor) {
         // extracting the position of the sample pixel
         const pixelIndexPosition = (x + y * originalWidth) * 4;
         // drawing a square replacing the current pixels
         let dark = 1;
-        if (Math.random() > 0.8){
+        //! RANDOM NOISE STRENGTH = SATURATION / NOISE FRACTION
+        if (Math.random() < saturation * 0.2){
             dark = 2;
         }
 
-        let rgba = [
-            originalImageData[pixelIndexPosition],
-            originalImageData[pixelIndexPosition + 1],
-            originalImageData[pixelIndexPosition + 2],
+        let rgb = [
+            originalImageData[pixelIndexPosition]/dark,
+            originalImageData[pixelIndexPosition + 1]/dark,
+            originalImageData[pixelIndexPosition + 2]/dark,
         ]
 
         //! PENDING CHANGES TO HELP IMPROVE CONTRAST
-        let avg_rgb = avg(rgba)/dark;
+        let avg_rgb = avg(rgb);
         let color;
 
-        if(Math.random() < opacity){
+        if(Math.random() < saturation){
             color = `rgb(
-                ${rgba[0]/dark},
-                ${rgba[1]/dark},
-                ${rgba[2]/dark}
+                ${rgb[0]},
+                ${rgb[1]},
+                ${rgb[2]}
             )`;
         }
         else{
@@ -124,8 +123,8 @@ function animateImage(img){
     // image
     clearInterval(img.animationInterval);
     img.animationInterval = setInterval(() => {
-        img.opacity += 0.3
-        img.opacity = Math.min(img.opacity, 1);
+        img.saturation += 0.3
+        img.saturation = Math.min(img.saturation, 1);
         pixelateImage(img);
     },120)
 }
@@ -138,9 +137,9 @@ function deanimateImage(img){
     // image
     clearInterval(img.animationInterval);
     img.animationInterval = setInterval(() => {
-        img.opacity -= 0.3
-        if(img.opacity <= 0){
-            img.opacity = Math.max(img.opacity, 0);
+        img.saturation -= 0.3
+        if(img.saturation <= 0){
+            img.saturation = Math.max(img.saturation, 0);
             clearInterval(img.animationInterval);
         }
         pixelateImage(img);
@@ -158,9 +157,11 @@ function initTechCanvas(tech){
 }
 
 function initTechStack(){
+    // header
     techHeader.innerHTML = defaultHeader;
     techHeader.style.color = "white";
 
+    // image
     for(let i = 0; i < 9; i++){
         const techDiv = document.createElement("div");
         techDiv.classList.add("tech-icon");

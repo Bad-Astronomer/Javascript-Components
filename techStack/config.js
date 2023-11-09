@@ -2,11 +2,11 @@ const tech_stack = {
     tech_python: {
         tag: "Python",
         url: './assets/pixel_python.png',
-        filter: "brightness(1.3)",
+        filter: "brightness(1.2)",
         color: "rgb(18, 159, 201)",
 
-        opacity: 0,
-        pixelationFactor: 7,
+        saturation: 0,
+        pixelationFactor: 8,
         image: new Image(),
     },
     
@@ -16,7 +16,7 @@ const tech_stack = {
         filter: "brightness(1.15) contrast(1.1)",
         color: "rgb(196, 178, 16)",
 
-        opacity: 0,
+        saturation: 0,
         pixelationFactor: 8,
         image: new Image(),
     },
@@ -27,7 +27,7 @@ const tech_stack = {
         filter: "brightness(1.25) contrast(1.1)",
         color: "rgb(30, 131, 214)",
 
-        opacity: 0,
+        saturation: 0,
         pixelationFactor: 8,
         image: new Image(),
     },
@@ -38,7 +38,7 @@ const tech_stack = {
         filter: "brightness(1) ",
         color: "rgb(30, 192, 214)",
 
-        opacity: 0,
+        saturation: 0,
         pixelationFactor: 8,
         image: new Image(),
     },
@@ -49,7 +49,7 @@ const tech_stack = {
         filter: "brightness(1.25)",
         color: "rgb(55, 63, 184)",
 
-        opacity: 0,
+        saturation: 0,
         pixelationFactor: 8,
         image: new Image(),
     },
@@ -57,10 +57,10 @@ const tech_stack = {
     tech_pytorch: {
         tag: "PyTorch",
         url: './assets/pixel_pytorch.png',
-        filter: "brightness(1.25)",
+        filter: "brightness(1.25) contrast(1.25)",
         color: "rgb(240, 77, 28)",
 
-        opacity: 0,
+        saturation: 0,
         pixelationFactor: 7,
         image: new Image(),
     },
@@ -68,10 +68,10 @@ const tech_stack = {
     tech_threejs: {
         tag: "ThreeJS",
         url: './assets/pixel_three.png',
-        filter: "brightness(0.85) contrast(1.3)",
+        filter: "brightness(0.825) contrast(1.4)",
         color: "rgb(161, 161, 161)",
 
-        opacity: 0,
+        saturation: 0,
         pixelationFactor: 7,
         image: new Image(),
     },
@@ -82,7 +82,7 @@ const tech_stack = {
         filter: "brightness(1.5) contrast(1.1)",
         color: "rgb(226, 137, 12)",
 
-        opacity: 0,
+        saturation: 0,
         pixelationFactor: 9,
         image: new Image(),
     },
@@ -93,7 +93,7 @@ const tech_stack = {
         filter: "brightness(1.15) contrast(1.1)",
         color: "rgb(47, 117, 193)",
 
-        opacity: 0,
+        saturation: 0,
         pixelationFactor: 8,
         image: new Image(),
     },
