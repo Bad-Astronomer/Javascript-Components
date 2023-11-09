@@ -32,7 +32,7 @@ sections.forEach((section) => {
 // Helper Functions
 
 function avg(arr){
-    const sum = arr.reduce((a, b) => a + b, 0);
+    const sum = arr.reduce((acc, curr) => acc + curr, 0);
     return sum / arr.length;
 }
 
@@ -157,113 +157,6 @@ function initTechCanvas(tech){
     }
 }
 
-
-
-
-const tech_stack = {
-    tech_python: {
-        tag: "Python",
-        url: './assets/pixel_python.png',
-        filter: "brightness(1.3)",
-        color: "rgb(18, 159, 201)",
-
-        opacity: 0,
-        pixelationFactor: 7,
-        image: new Image(),
-    },
-    
-    tech_js: {
-        tag: "Javascript",
-        url: './assets/pixel_javascript.png',
-        filter: "brightness(1.15) contrast(1.1)",
-        color: "rgb(196, 178, 16)",
-
-        opacity: 0,
-        pixelationFactor: 8,
-        image: new Image(),
-    },
-    
-    tech_css: {
-        tag: "CSS styling",
-        url: './assets/pixel_css.png',
-        filter: "brightness(1.25) contrast(1.1)",
-        color: "rgb(30, 131, 214)",
-
-        opacity: 0,
-        pixelationFactor: 8,
-        image: new Image(),
-    },
-    
-    tech_react: {
-        tag: "ReactJS",
-        url: './assets/pixel_reactjs.png',
-        filter: "brightness(1) ",
-        color: "rgb(30, 192, 214)",
-
-        opacity: 0,
-        pixelationFactor: 8,
-        image: new Image(),
-    },
-    
-    tech_c: {
-        tag: "C_programming",
-        url: './assets/pixel_c.png',
-        filter: "brightness(1.25)",
-        color: "rgb(55, 63, 184)",
-
-        opacity: 0,
-        pixelationFactor: 8,
-        image: new Image(),
-    },
-    
-    tech_pytorch: {
-        tag: "PyTorch",
-        url: './assets/pixel_pytorch.png',
-        filter: "brightness(1.25)",
-        color: "rgb(240, 77, 28)",
-
-        opacity: 0,
-        pixelationFactor: 7,
-        image: new Image(),
-    },
-    
-    tech_threejs: {
-        tag: "ThreeJS",
-        url: './assets/pixel_three.png',
-        filter: "brightness(0.85) contrast(1.3)",
-        color: "rgb(161, 161, 161)",
-
-        opacity: 0,
-        pixelationFactor: 7,
-        image: new Image(),
-    },
-    
-    tech_java: {
-        tag: "Java",
-        url: './assets/pixel_java.png',
-        filter: "brightness(1.5) contrast(1.1)",
-        color: "rgb(226, 137, 12)",
-
-        opacity: 0,
-        pixelationFactor: 9,
-        image: new Image(),
-    },
-    
-    tech_ts : {
-        tag: "Typescript",
-        url: './assets/pixel_ts.png',
-        filter: "brightness(1.15) contrast(1.1)",
-        color: "rgb(47, 117, 193)",
-
-        opacity: 0,
-        pixelationFactor: 8,
-        image: new Image(),
-    },
-}
-
-const techHeader = document.getElementById("tech-header-span");
-const defaultHeader = "&lt;<span style = 'color: red'> / </span>&gt;";
-
 function initTechStack(){
     techHeader.innerHTML = defaultHeader;
     techHeader.style.color = "white";
@@ -284,4 +177,11 @@ function initTechStack(){
         i++;
     }
 }
+
+
+// Init for tech stack
+
+const techHeader = document.getElementById("tech-header-span");
+const defaultHeader = "&lt;<span style = 'color: red'> / </span>&gt;";
+
 initTechStack();
