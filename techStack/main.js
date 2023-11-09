@@ -50,6 +50,7 @@ function pixelateImage(tech) {
 
     const saturation = tech.saturation;
     const pixelationFactor = tech.pixelationFactor;
+    const noise = tech.noise;
 
     const originalWidth = originalImage.width;
     const originalHeight = originalImage.height;
@@ -77,8 +78,8 @@ function pixelateImage(tech) {
         const pixelIndexPosition = (x + y * originalWidth) * 4;
         // drawing a square replacing the current pixels
         let dark = 1;
-        //! RANDOM NOISE STRENGTH = SATURATION / NOISE FRACTION
-        if (Math.random() < saturation * 0.2){
+        //! RANDOM NOISE STRENGTH = SATURATION * NOISE FRACTION
+        if (Math.random() < saturation * noise){
             dark = 2;
         }
 
