@@ -2,8 +2,12 @@
 
 ***In my resume, I have detailed my proficiency in various programming languages and the technology stack I am well-versed in.
 Additionally, in this demonstration website, I've implemented an artistic pixelation effect on images.
-On hover, the imagery undergoes a saturation transition, resulting in a captivating and intricate pixel-by-pixel animation.***
+On hover, the imagery undergoes a saturation transition, resulting in a captivating and intricate pixel-by-pixel animation.***  
 
+***How to run:***  
+<code>cd TechStack</code> > 
+<code>npm install</code> > 
+<code>npm run dev</code> 
 ## Demo
 <!DOCTYPE html>
 <html>
