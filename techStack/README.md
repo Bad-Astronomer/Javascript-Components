@@ -5,6 +5,7 @@ Additionally, in this demonstration website, I've implemented an artistic pixela
 On hover, the imagery undergoes a saturation transition, resulting in a captivating and intricate pixel-by-pixel animation.  
 
 ***How to run:***  
+  
 <code>cd TechStack</code> > 
 <code>npm install</code> > 
 <code>npm run dev</code> 
@@ -23,7 +24,6 @@ On hover, the imagery undergoes a saturation transition, resulting in a captivat
 
 ## Demo Configuration
 ```js
-  
 tech_python: {
   
         tag: "Python",
@@ -37,5 +37,4 @@ tech_python: {
         image: new Image(),
   
     },
-  
 ```
