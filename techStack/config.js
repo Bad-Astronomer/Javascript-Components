@@ -1,3 +1,8 @@
+// Tech Header config
+const defaultHeader = "&lt;<span style = 'color: red'> / </span>&gt;";
+const animationTime = 120;
+
+// Tech Stack config
 const tech_stack = {
     tech_python: {
         tag: "Python",

@@ -21,23 +21,17 @@ function cross(element){
     createCross("bottom", element);
 }
 
-// add cross to all sections
 const sections = document.querySelectorAll("section");
 sections.forEach((section) => {
-    cross(section);
+    cross(section); // add cross to all sections
 })
 
 
-
-// Helper Functions
+// Global Helper Functions
 
 function avg(arr){
     const sum = arr.reduce((acc, curr) => acc + curr, 0);
     return sum / arr.length;
-}
-
-function animateText(){
-
 }
 
 
@@ -89,7 +83,6 @@ function pixelateImage(tech) {
             originalImageData[pixelIndexPosition + 2]/dark,
         ]
 
-        //! PENDING CHANGES TO HELP IMPROVE CONTRAST
         let avg_rgb = avg(rgb);
         let color;
 
@@ -111,17 +104,12 @@ function pixelateImage(tech) {
         ctx.strokeRect(x, y, pixelationFactor, pixelationFactor);
         }
     }
-    // originalImage.src = canvas.toDataURL();
 }
+
 
 // Helper functions to pixelateImage
 
 function animateImage(img){
-    // header
-    techHeader.innerHTML = img.tag;
-    techHeader.style.color = img.color;
-
-    // image
     clearInterval(img.animationInterval);
     img.animationInterval = setInterval(() => {
         img.saturation += 0.3
@@ -131,11 +119,6 @@ function animateImage(img){
 }
 
 function deanimateImage(img){
-    // header
-    techHeader.innerHTML = defaultHeader;
-    techHeader.style.color = "white";
-
-    // image
     clearInterval(img.animationInterval);
     img.animationInterval = setInterval(() => {
         img.saturation -= 0.3
@@ -152,15 +135,78 @@ function initTechCanvas(tech){
     tech.element.querySelector('canvas').style.filter = tech.filter;
     tech.image.onload = () => {
         pixelateImage(tech);
-        tech.element.addEventListener("mouseenter", () => {animateImage(tech);});
-        tech.element.addEventListener("mouseleave", () => {deanimateImage(tech)});
+
+        tech.element.addEventListener("mouseenter", () => {
+            techHover = true;
+            animateTechHeader(tech);
+            animateImage(tech);
+        });
+
+        tech.element.addEventListener("mouseleave", () => {
+            techHover = false;
+            setTimeout(() => {
+                if(!techHover){
+                    deanimateTechHeader();
+                }
+            }, animationTime*2);
+            deanimateImage(tech);
+        });
     }
 }
 
+
+// Helper functions for Tech Header Animation
+
+function createTechHeader(){
+    let techHeader = document.createElement("span");
+    techHeader.classList.add("tech-header-span");
+    techHeaderContainer.appendChild(techHeader);
+    return techHeader;
+}
+
+function animateTechHeader(tech){
+    let tempHeader = createTechHeader();
+    tempHeader.innerHTML = tech.tag;
+    tempHeader.style.color = tech.color;
+
+    tempHeader.style.transformOrigin = "top";
+    tempHeader.style.transform = "scaleY(0)";
+    tempHeader.style.opacity = 0;
+    tempHeader.style.transition = `transform ${animationTime}ms linear, opacity ${animationTime}ms ease-in`;
+
+    setTimeout(() => {
+        tempHeader.style.transform = "scaleY(1)";
+        tempHeader.style.opacity = 1;
+    }, 1);
+
+    currentTechHeader.style.transition = `transform ${animationTime}ms linear, opacity ${animationTime}ms ease-in`;
+    currentTechHeader.style.transformOrigin = "bottom";
+    currentTechHeader.style.transform = "scaleY(0)";
+    currentTechHeader.style.opacity = 0;
+
+    setTimeout(() => {
+        currentTechHeader.remove();
+        currentTechHeader = tempHeader;
+    }, animationTime);
+}
+
+function deanimateTechHeader(){
+    tech = {
+        tag: defaultHeader,
+        color: "white",
+    }
+    animateTechHeader(tech);
+}
+
+
+// Init for tech stack
+
 function initTechStack(){
     // header
-    techHeader.innerHTML = defaultHeader;
-    techHeader.style.color = "white";
+    currentTechHeader = createTechHeader();
+
+    currentTechHeader.innerHTML = defaultHeader;
+    currentTechHeader.style.color = "white";
 
     // image
     for(let i = 0; i < 9; i++){
@@ -180,10 +226,8 @@ function initTechStack(){
     }
 }
 
-
-// Init for tech stack
-
-const techHeader = document.getElementById("tech-header-span");
-const defaultHeader = "&lt;<span style = 'color: red'> / </span>&gt;";
+let currentTechHeader;
+let techHover = false;
+const techHeaderContainer = document.getElementById("tech-header-container");
 
 initTechStack();

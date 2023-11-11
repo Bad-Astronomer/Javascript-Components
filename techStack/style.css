@@ -53,13 +53,30 @@ body{
 
   color: var(--header-color);
   display: flex;
-  align-items: center;
-}
-#tech-header p{
-  margin-left: 12.5%;
+  /* align-items: center; */
+  justify-content: center;
+  flex-direction: column;
+
   font-size: clamp(1.25rem, 2vw, 2rem);
   font-weight: 800;
-  position: relative;
+  margin-left: 12.5%;
+}
+#tech-header p {
+  margin: 0;
+}
+
+#tech-header-container{
+  height: clamp(1.25rem, 2vw, 2rem);
+}
+.tech-header-span{
+  position: absolute;
+}
+
+.tech-header-span-down{
+  transform-origin: bottom;
+}
+.tech-header-span-up{
+  transform-origin: top;
 }
 
 
