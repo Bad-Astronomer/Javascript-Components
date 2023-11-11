@@ -59,7 +59,7 @@ body{
 
   font-size: clamp(1.25rem, 2vw, 2rem);
   font-weight: 800;
-  margin-left: 12.5%;
+  padding-left: 12.5%;
 }
 #tech-header p {
   margin: 0;
